@@ -7019,22 +7019,38 @@
     createRoot = m.createRoot;
     m.hydrateRoot;
   }
+  const styleRelativeNode = {
+    position: "relative"
+  };
+  const styleDotNode = {
+    position: "absolute",
+    width: "7px",
+    height: "7px",
+    borderRadius: "50%",
+    backgroundColor: "rgb(29, 155, 240)",
+    right: "10px",
+    top: "1px",
+    zIndex: 1
+  };
   const MenuItem = (props) => {
     return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { role: "menuitem", className: "css-175oi2r r-1loqt21 r-18u37iz r-1mmae3n r-3pj75a r-13qz1uu r-o7ynqc r-6416eg r-1ny4l3l", onClick: props.onClick, children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "css-175oi2r r-1777fci r-faml9v", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
-        "svg",
-        {
-          viewBox: "0 0 24 24",
-          "aria-hidden": "true",
-          className: "r-4qtqp9 r-yyyyoo r-1xvli5t r-dnmrzs r-bnwqim r-lrvibr r-m6rgpd r-1nao33i r-1q142lx",
-          children: /* @__PURE__ */ jsxRuntimeExports.jsx("g", { children: /* @__PURE__ */ jsxRuntimeExports.jsx(
-            "path",
-            {
-              d: "M18.36 5.64c-1.95-1.96-5.11-1.96-7.07 0L9.88 7.05 8.46 5.64l1.42-1.42c2.73-2.73 7.16-2.73 9.9 0 2.73 2.74 2.73 7.17 0 9.9l-1.42 1.42-1.41-1.42 1.41-1.41c1.96-1.96 1.96-5.12 0-7.07zm-2.12 3.53l-7.07 7.07-1.41-1.41 7.07-7.07 1.41 1.41zm-12.02.71l1.42-1.42 1.41 1.42-1.41 1.41c-1.96 1.96-1.96 5.12 0 7.07 1.95 1.96 5.11 1.96 7.07 0l1.41-1.41 1.42 1.41-1.42 1.42c-2.73 2.73-7.16 2.73-9.9 0-2.73-2.74-2.73-7.17 0-9.9z"
-            }
-          ) })
-        }
-      ) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "css-175oi2r r-1777fci r-faml9v", style: styleRelativeNode, children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { style: styleDotNode }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
+          "svg",
+          {
+            viewBox: "0 0 24 24",
+            "aria-hidden": "true",
+            className: "r-4qtqp9 r-yyyyoo r-1xvli5t r-dnmrzs r-bnwqim r-lrvibr r-m6rgpd r-1nao33i r-1q142lx",
+            children: /* @__PURE__ */ jsxRuntimeExports.jsx("g", { children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+              "path",
+              {
+                d: "M18.36 5.64c-1.95-1.96-5.11-1.96-7.07 0L9.88 7.05 8.46 5.64l1.42-1.42c2.73-2.73 7.16-2.73 9.9 0 2.73 2.74 2.73 7.17 0 9.9l-1.42 1.42-1.41-1.42 1.41-1.41c1.96-1.96 1.96-5.12 0-7.07zm-2.12 3.53l-7.07 7.07-1.41-1.41 7.07-7.07 1.41 1.41zm-12.02.71l1.42-1.42 1.41 1.42-1.41 1.41c-1.96 1.96-1.96 5.12 0 7.07 1.95 1.96 5.11 1.96 7.07 0l1.41-1.41 1.42 1.41-1.42 1.42c-2.73 2.73-7.16 2.73-9.9 0-2.73-2.74-2.73-7.17 0-9.9z"
+              }
+            ) })
+          }
+        )
+      ] }),
       /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "css-175oi2r r-16y2uox r-1wbh5a2", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
         "div",
         {

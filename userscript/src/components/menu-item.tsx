@@ -1,14 +1,30 @@
-import type { FC } from 'react';
+import type { FC, CSSProperties } from 'react';
 
 type Props = {
     text: string;
     onClick: () => void;
 }
 
+const styleRelativeNode: CSSProperties = {
+    position: 'relative'
+};
+
+const styleDotNode: CSSProperties = {
+    position: 'absolute',
+    width: '7px',
+    height: '7px',
+    borderRadius: '50%',
+    backgroundColor: 'rgb(29, 155, 240)',
+    right: '10px',
+    top: '1px',
+    zIndex: 1
+};
+
 const MenuItem: FC<Props> = (props) => {
     return (
         <div role="menuitem" className="css-175oi2r r-1loqt21 r-18u37iz r-1mmae3n r-3pj75a r-13qz1uu r-o7ynqc r-6416eg r-1ny4l3l" onClick={props.onClick}>
-            <div className="css-175oi2r r-1777fci r-faml9v">
+            <div className="css-175oi2r r-1777fci r-faml9v" style={styleRelativeNode}>
+                <div style={styleDotNode}></div>
                 <svg viewBox="0 0 24 24" aria-hidden="true"
                     className="r-4qtqp9 r-yyyyoo r-1xvli5t r-dnmrzs r-bnwqim r-lrvibr r-m6rgpd r-1nao33i r-1q142lx">
                     <g>
