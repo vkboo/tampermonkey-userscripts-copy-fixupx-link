@@ -7049,12 +7049,18 @@
       ) })
     ] });
   };
+  const SELECTOR_MENU_CONTAINER = '[role="menu"] [data-testid="Dropdown"]';
+  const DATA_TEST_ID = "data-testid";
+  const FIXUP_SHARE_ITEM = "fixup-share-item";
   function handleShareButton() {
     const observer = new MutationObserver((mutations) => {
       mutations.forEach((mutation) => {
         mutation.addedNodes.forEach((node) => {
-          if (node instanceof HTMLElement && node.querySelector('[role="menu"] [data-testid="Dropdown"]')) {
-            addCustomMenuItem(node);
+          if (node instanceof HTMLElement && node.querySelector(SELECTOR_MENU_CONTAINER)) {
+            const existingMenuItem = node.querySelector(`[${DATA_TEST_ID}=${FIXUP_SHARE_ITEM}]`);
+            if (!existingMenuItem) {
+              addCustomMenuItem(node);
+            }
           }
         });
       });
@@ -7065,11 +7071,13 @@
     });
     function addCustomMenuItem(menuContainer) {
       const container = document.createElement("div");
+      container.setAttribute(DATA_TEST_ID, FIXUP_SHARE_ITEM);
       menuContainer.prepend(container);
       const root = createRoot(container);
       root.render(/* @__PURE__ */ jsxRuntimeExports.jsx(MenuItem, { text: "Copy fixupX link", onClick: () => {
         const url = window.location.href;
         navigator.clipboard.writeText(url);
+        container.remove();
         menuContainer.remove();
       } }));
     }
