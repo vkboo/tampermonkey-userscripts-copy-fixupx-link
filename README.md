@@ -1,3 +1,6 @@
+<!-- TODO -->
+<!-- 添加功能说明，保留插件的开发指南 -->
+
 # react-userscripts
 Develop a Greasemonkey/Tampermonkey script using React
 
