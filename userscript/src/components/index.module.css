@@ -1,0 +1,22 @@
+.menuItemLight:hover {
+    background-color: rgba(0,0,0,0.03);
+}
+
+.menuItemDark:hover {
+    background-color: rgba(255,255,255,0.03);
+}
+
+.relativeNode {
+    position: relative;
+}
+
+.dotNode {
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: rgb(29, 155, 240);
+    right: 10px;
+    top: 1px;
+    z-index: 1;
+}

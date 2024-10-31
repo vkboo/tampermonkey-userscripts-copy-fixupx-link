@@ -68,7 +68,7 @@
    * This source code is licensed under the MIT license found in the
    * LICENSE file in the root directory of this source tree.
    */
-  var l$1 = Symbol.for("react.element"), n$1 = Symbol.for("react.portal"), p$2 = Symbol.for("react.fragment"), q$1 = Symbol.for("react.strict_mode"), r = Symbol.for("react.profiler"), t = Symbol.for("react.provider"), u = Symbol.for("react.context"), v$1 = Symbol.for("react.forward_ref"), w = Symbol.for("react.suspense"), x = Symbol.for("react.memo"), y = Symbol.for("react.lazy"), z$1 = Symbol.iterator;
+  var l$1 = Symbol.for("react.element"), n$1 = Symbol.for("react.portal"), p$2 = Symbol.for("react.fragment"), q$1 = Symbol.for("react.strict_mode"), r$1 = Symbol.for("react.profiler"), t = Symbol.for("react.provider"), u = Symbol.for("react.context"), v$1 = Symbol.for("react.forward_ref"), w = Symbol.for("react.suspense"), x = Symbol.for("react.memo"), y = Symbol.for("react.lazy"), z$1 = Symbol.iterator;
   function A$1(a) {
     if (null === a || "object" !== typeof a) return null;
     a = z$1 && a[z$1] || a["@@iterator"];
@@ -213,7 +213,7 @@
   } };
   react_production_min.Component = E$1;
   react_production_min.Fragment = p$2;
-  react_production_min.Profiler = r;
+  react_production_min.Profiler = r$1;
   react_production_min.PureComponent = G$1;
   react_production_min.StrictMode = q$1;
   react_production_min.Suspense = w;
@@ -7019,29 +7019,72 @@
     createRoot = m.createRoot;
     m.hydrateRoot;
   }
-  const styleRelativeNode = {
-    position: "relative"
+  const isDarkMode = () => {
+    var style = getComputedStyle(document.documentElement);
+    return style.getPropertyValue("color-scheme") === "dark";
   };
-  const styleDotNode = {
-    position: "absolute",
-    width: "7px",
-    height: "7px",
-    borderRadius: "50%",
-    backgroundColor: "rgb(29, 155, 240)",
-    right: "10px",
-    top: "1px",
-    zIndex: 1
+  function withColorScheme(Component) {
+    return (props) => {
+      const [colorScheme, setColorScheme] = reactExports.useState(isDarkMode() ? "dark" : "light");
+      reactExports.useEffect(() => {
+        const observer = new MutationObserver((mutations) => {
+          mutations.forEach((mutation) => {
+            mutation.addedNodes.forEach((_) => {
+              setColorScheme(isDarkMode() ? "dark" : "light");
+            });
+          });
+        });
+        observer.observe(document.documentElement, {
+          attributes: true,
+          attributeFilter: ["color-scheme"]
+        });
+      }, []);
+      return /* @__PURE__ */ jsxRuntimeExports.jsx(Component, { ...props, colorScheme });
+    };
+  }
+  function r(e) {
+    var t2, f2, n2 = "";
+    if ("string" == typeof e || "number" == typeof e) n2 += e;
+    else if ("object" == typeof e) if (Array.isArray(e)) {
+      var o = e.length;
+      for (t2 = 0; t2 < o; t2++) e[t2] && (f2 = r(e[t2])) && (n2 && (n2 += " "), n2 += f2);
+    } else for (f2 in e) e[f2] && (n2 && (n2 += " "), n2 += f2);
+    return n2;
+  }
+  function clsx() {
+    for (var e, t2, f2 = 0, n2 = "", o = arguments.length; f2 < o; f2++) (e = arguments[f2]) && (t2 = r(e)) && (n2 && (n2 += " "), n2 += t2);
+    return n2;
+  }
+  const menuItemLight = "_menuItemLight_13xj8_1";
+  const menuItemDark = "_menuItemDark_13xj8_5";
+  const relativeNode = "_relativeNode_13xj8_9";
+  const dotNode = "_dotNode_13xj8_13";
+  const styles = {
+    menuItemLight,
+    menuItemDark,
+    relativeNode,
+    dotNode
   };
   const MenuItem = (props) => {
-    return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { role: "menuitem", className: "css-175oi2r r-1loqt21 r-18u37iz r-1mmae3n r-3pj75a r-13qz1uu r-o7ynqc r-6416eg r-1ny4l3l", onClick: props.onClick, children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "css-175oi2r r-1777fci r-faml9v", style: styleRelativeNode, children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { style: styleDotNode }),
+    const { colorScheme, onClick, text } = props;
+    return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { role: "menuitem", className: clsx(
+      "css-175oi2r r-1loqt21 r-18u37iz r-1mmae3n r-3pj75a r-13qz1uu r-o7ynqc r-6416eg r-1ny4l3l",
+      colorScheme === "dark" ? styles.menuItemDark : styles.menuItemLight
+    ), onClick, children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: clsx(
+        styles.relativeNode,
+        "css-175oi2r r-1777fci r-faml9v"
+      ), children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: styles.dotNode }),
         /* @__PURE__ */ jsxRuntimeExports.jsx(
           "svg",
           {
             viewBox: "0 0 24 24",
             "aria-hidden": "true",
-            className: "r-4qtqp9 r-yyyyoo r-1xvli5t r-dnmrzs r-bnwqim r-lrvibr r-m6rgpd r-1nao33i r-1q142lx",
+            className: clsx(
+              "r-4qtqp9 r-yyyyoo r-1xvli5t r-dnmrzs r-bnwqim r-lrvibr r-m6rgpd r-1q142lx",
+              colorScheme === "dark" ? "r-1nao33i" : "r-18jsvk2"
+            ),
             children: /* @__PURE__ */ jsxRuntimeExports.jsx("g", { children: /* @__PURE__ */ jsxRuntimeExports.jsx(
               "path",
               {
@@ -7058,13 +7101,14 @@
           className: "css-146c3p1 r-bcqeeo r-1ttztb7 r-qvutc0 r-37j5jr r-a023e6 r-rjixqe r-b88u0q",
           style: {
             textOverflow: "unset",
-            color: "rgb(231, 233, 234)"
+            color: colorScheme === "dark" ? "rgb(231, 233, 234)" : "rgb(15, 20, 25)"
           },
-          children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "css-1jxf684 r-bcqeeo r-1ttztb7 r-qvutc0 r-poiln3", style: { textOverflow: "unset" }, children: props.text })
+          children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "css-1jxf684 r-bcqeeo r-1ttztb7 r-qvutc0 r-poiln3", style: { textOverflow: "unset" }, children: text })
         }
       ) })
     ] });
   };
+  const MenuItem$1 = withColorScheme(MenuItem);
   const SELECTOR_MENU_CONTAINER = '[role="menu"] [data-testid="Dropdown"]';
   const DATA_TEST_ID = "data-testid";
   const FIXUP_SHARE_ITEM = "fixup-share-item";
@@ -7083,7 +7127,7 @@
       menuContainer.remove();
     };
     root.render(
-      /* @__PURE__ */ jsxRuntimeExports.jsx(MenuItem, { text: "Copy fixupX link", onClick: onMenuItemClick })
+      /* @__PURE__ */ jsxRuntimeExports.jsx(MenuItem$1, { text: "Copy fixupX link", onClick: onMenuItemClick })
     );
   };
   const handleShareButton = () => {
@@ -7118,7 +7162,7 @@
 ;
 (function(){
                     const el = document.createElement("style");
-                    el.innerText = "";
+                    el.innerText = "._menuItemLight_13xj8_1:hover {\n    background-color: rgba(0,0,0,0.03);\n}\n\n._menuItemDark_13xj8_5:hover {\n    background-color: rgba(255,255,255,0.03);\n}\n\n._relativeNode_13xj8_9 {\n    position: relative;\n}\n\n._dotNode_13xj8_13 {\n    position: absolute;\n    width: 7px;\n    height: 7px;\n    border-radius: 50%;\n    background-color: rgb(29, 155, 240);\n    right: 10px;\n    top: 1px;\n    z-index: 1;\n}\n";
                     el.type = "text/css";
                     document.head.appendChild(el);
                 })();
