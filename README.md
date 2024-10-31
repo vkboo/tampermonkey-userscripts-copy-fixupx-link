@@ -6,9 +6,9 @@ Automatically convert copied X (Twitter) share links to fixupX format, enabling 
 
 ## 使用方法 | Usage
 
-1. 浏览器安装Tampermonkey插件或Greasemonkey插件
+1. 浏览器安装[Tampermonkey拓展](https://chromewebstore.google.com/detail/%E7%AF%A1%E6%94%B9%E7%8C%B4/dhdgffkkebhmkfjojejmpbldmpobfkfo)
    
-   Install Tampermonkey or Greasemonkey extension in your browser
+   Install [Tampermonkey extension](https://chromewebstore.google.com/detail/%E7%AF%A1%E6%94%B9%E7%8C%B4/dhdgffkkebhmkfjojejmpbldmpobfkfo) in your browser
 
 3. 通过[OpenUserJS的链接](https://openuserjs.org/scripts/tyounami/FixupX_share_link)安装脚本
    
@@ -18,4 +18,4 @@ Automatically convert copied X (Twitter) share links to fixupX format, enabling 
    
    Click the share button, the first menu item will be "Copy FixupX link"
 
-![User Guide](./use-guide.png "User Guide")
+![User Guide](./use-guide.png "User Guide" width=60%)
