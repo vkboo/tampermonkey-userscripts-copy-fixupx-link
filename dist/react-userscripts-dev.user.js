@@ -5,6 +5,7 @@
 // @description Copy FixupX link when click share button in X.com
 // @include https://x.com
 // @include https://x.com/*
+// @license MIT
 // @grant    none
 // ==/UserScript==
 
