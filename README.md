@@ -18,4 +18,5 @@ Automatically convert copied X (Twitter) share links to fixupX format, enabling 
    
    Click the share button, the first menu item will be "Copy FixupX link"
 
-![User Guide](./use-guide.png "User Guide" width=60%)
+<img src="./use-guide.png" alt="Use Guide" width="60%" />
+
