@@ -14,7 +14,9 @@ const addCustomMenuItem = (menuContainer: HTMLElement) => {
     const onMenuItemClick = async () => {
         copyLinkButton.click();
         const originXUrl = await navigator.clipboard.readText();
-        const fixupXUrl = originXUrl.replace('x.com', 'fixupx.com');
+        const fixupXUrl = originXUrl
+            .replace('x.com', 'fixupx.com')
+            .replace('twitter.com', 'fxtwitter.com');
         navigator.clipboard.writeText(fixupXUrl)
         container.remove();
         menuContainer.remove();
